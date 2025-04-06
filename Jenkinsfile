@@ -19,6 +19,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo "This is Deploy"'
+                    error "pipeline failed"
                 }
             }
         }
