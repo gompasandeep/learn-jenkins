@@ -6,6 +6,7 @@ pipeline {
     options {
         timeout(time: 10, unit: 'MINUTES')
         disableConcurrentBuilds()
+        retry(1)
     }
 
     stages {
@@ -25,7 +26,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'echo "This is Deploy"'
-                // error "pipeline failed"
+                error "pipeline failed"
             }
         }
     }
