@@ -2,30 +2,28 @@ pipeline {
     agent {
         label 'AGENT-1'
     }
+    options{
+        timeout(time: 10, unit: 'MINUTES')
+    }
     stages {
         stage('Build') {
             steps {
-                script {
                     sh 'echo "This is Build"'
+                    sh 'sleep 10'
                 }
             }
         }
         stage('Test') {
-            steps {
-                script {
+                steps {
                     sh 'echo "This is Test"'
                 }
             }
-        }
         stage('Deploy') {
             steps {
-                script {
                     sh 'echo "This is Deploy"'
                    // error "pipeline failed"
                 }
             }
-        }
-    }
 
     post {
         always{
